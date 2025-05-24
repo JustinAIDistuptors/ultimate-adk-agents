@@ -1,0 +1,61 @@
+# Production requirements - Generated from pyproject.toml
+# These are the core dependencies for running Ultimate ADK Agents in production
+# Install with: pip install -r requirements/production.txt
+
+# Google ADK 1.0+ (production release May 20, 2025)
+google-adk>=1.0.0,<2.0.0
+
+# Google Cloud & AI dependencies
+google-cloud-aiplatform>=1.60.0
+google-cloud-logging>=3.10.0
+google-cloud-monitoring>=2.21.0
+google-cloud-secret-manager>=2.20.0
+google-generativeai>=0.8.0
+vertexai>=1.65.0
+
+# Core Python dependencies
+pydantic>=2.8.0
+pydantic-settings>=2.4.0
+httpx>=0.27.0
+aiohttp>=3.10.0
+asyncio>=3.4.3
+tenacity>=8.5.0
+structlog>=24.4.0
+
+# Vector databases for RAG
+chromadb>=0.5.0
+weaviate-client>=4.6.0
+pinecone-client>=4.0.0
+qdrant-client>=1.10.0
+
+# Security & Compliance
+cryptography>=42.0.0
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+pyotp>=2.9.0
+
+# Observability & Monitoring
+opentelemetry-api>=1.25.0
+opentelemetry-sdk>=1.25.0
+opentelemetry-instrumentation>=0.46.0
+prometheus-client>=0.20.0
+
+# Data processing
+numpy>=2.0.0
+pandas>=2.2.0
+pyarrow>=16.0.0
+
+# Configuration management
+python-dotenv>=1.0.1
+omegaconf>=2.3.0
+dynaconf>=3.2.5
+
+# API & Web
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+
+# CLI tools
+typer>=0.12.0
+rich>=13.7.0
+click>=8.1.7

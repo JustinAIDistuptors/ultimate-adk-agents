@@ -1,0 +1,34 @@
+# Version constraints for Ultimate ADK Agents
+# These constraints ensure compatibility and security across all dependencies
+# Last updated: May 2025
+
+# Security constraints - pin to secure versions
+urllib3>=2.2.0  # CVE-2024-xxxxx fix
+requests>=2.32.0  # Security patches
+cryptography>=42.0.0  # Latest security updates
+setuptools>=70.0  # Security and performance fixes
+
+# Compatibility constraints
+# Google ADK requires specific versions
+protobuf>=4.25.0,<5.0.0  # Required by Google ADK
+grpcio>=1.62.0  # Required by Google Cloud libraries
+
+# Python version constraints
+numpy>=2.0.0  # Requires Python 3.12+
+pandas>=2.2.0  # Requires Python 3.12+
+
+# Prevent conflicts
+# These packages have known conflicts at certain versions
+pydantic!=2.7.0  # Has breaking changes
+fastapi!=0.110.0  # Compatibility issues with pydantic
+
+# Performance constraints
+# Use these specific versions for optimal performance
+orjson==3.10.3  # Fastest JSON parser
+uvloop==0.19.0  # High-performance event loop
+
+# Development tool constraints
+# Ensure consistent development experience
+black==24.4.2  # Exact version for formatting consistency
+ruff==0.4.4  # Exact version for linting consistency
+mypy==1.10.0  # Exact version for type checking consistency

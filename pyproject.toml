@@ -1,0 +1,538 @@
+# Ultimate ADK Agents - Enterprise-Grade pyproject.toml
+# Based on comprehensive research of Google ADK 1.0+ (May 2025) best practices
+# This configuration follows enterprise Python development standards for 2025
+
+[build-system]
+# Using setuptools as build backend for maximum compatibility
+# Following Google ADK's approach but with enterprise enhancements
+requires = ["setuptools>=70.0", "wheel>=0.43", "setuptools-scm>=8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ultimate-adk-agents"
+version = "1.0.0"
+description = "THE definitive enterprise-grade reference implementation for Google ADK (1.0+) agentic systems"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.12,<4.0"
+authors = [
+    {name = "Ultimate ADK Team", email = "team@ultimate-adk-agents.io"}
+]
+maintainers = [
+    {name = "Justin AI Disruptors", email = "contact@justinaidisruptors.com"}
+]
+keywords = [
+    "google-adk",
+    "agents",
+    "ai-agents",
+    "multi-agent-systems",
+    "enterprise",
+    "vertex-ai",
+    "gemini",
+    "a2a-protocol",
+    "soc2-compliant",
+    "gdpr-compliant"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Distributed Computing",
+    "Typing :: Typed",
+]
+
+# Core dependencies following Google ADK 1.0+ patterns
+dependencies = [
+    # Google ADK 1.0+ (production release May 20, 2025)
+    "google-adk>=1.0.0,<2.0.0",
+    
+    # Google Cloud & AI dependencies
+    "google-cloud-aiplatform>=1.60.0",
+    "google-cloud-logging>=3.10.0",
+    "google-cloud-monitoring>=2.21.0",
+    "google-cloud-secret-manager>=2.20.0",
+    "google-generativeai>=0.8.0",
+    "vertexai>=1.65.0",
+    
+    # Core Python dependencies
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.4.0",
+    "httpx>=0.27.0",
+    "aiohttp>=3.10.0",
+    "asyncio>=3.4.3",
+    "tenacity>=8.5.0",
+    "structlog>=24.4.0",
+    
+    # Vector databases for RAG
+    "chromadb>=0.5.0",
+    "weaviate-client>=4.6.0",
+    "pinecone-client>=4.0.0",
+    "qdrant-client>=1.10.0",
+    
+    # Security & Compliance
+    "cryptography>=42.0.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "pyotp>=2.9.0",
+    
+    # Observability & Monitoring
+    "opentelemetry-api>=1.25.0",
+    "opentelemetry-sdk>=1.25.0",
+    "opentelemetry-instrumentation>=0.46.0",
+    "prometheus-client>=0.20.0",
+    
+    # Data processing
+    "numpy>=2.0.0",
+    "pandas>=2.2.0",
+    "pyarrow>=16.0.0",
+    
+    # Configuration management
+    "python-dotenv>=1.0.1",
+    "omegaconf>=2.3.0",
+    "dynaconf>=3.2.5",
+    
+    # API & Web
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "python-multipart>=0.0.9",
+    
+    # CLI tools
+    "typer>=0.12.0",
+    "rich>=13.7.0",
+    "click>=8.1.7",
+]
+
+[project.optional-dependencies]
+# Development dependencies
+dev = [
+    # Testing frameworks
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-xdist>=3.6.0",
+    "pytest-benchmark>=4.0.0",
+    "hypothesis>=6.100.0",
+    "faker>=25.0.0",
+    
+    # Code quality tools (2025 best practices)
+    "ruff>=0.4.4",
+    "mypy>=1.10.0",
+    "black>=24.4.0",
+    "isort>=5.13.0",
+    "pre-commit>=3.7.0",
+    
+    # Security scanning
+    "bandit[toml]>=1.7.8",
+    "safety>=3.2.0",
+    "pip-audit>=2.7.0",
+    "semgrep>=1.70.0",
+    
+    # Documentation
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.25.0",
+    
+    # Development utilities
+    "ipython>=8.24.0",
+    "jupyter>=1.0.0",
+    "notebook>=7.2.0",
+    "httpie>=3.2.2",
+    "watchdog>=4.0.0",
+]
+
+# Testing specific dependencies
+test = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-xdist>=3.6.0",
+    "pytest-benchmark>=4.0.0",
+    "hypothesis>=6.100.0",
+    "faker>=25.0.0",
+    "moto[all]>=5.0.0",
+    "responses>=0.25.0",
+    "freezegun>=1.5.0",
+    "time-machine>=2.14.0",
+]
+
+# Linting and type checking
+lint = [
+    "ruff>=0.4.4",
+    "mypy>=1.10.0",
+    "black>=24.4.0",
+    "isort>=5.13.0",
+    "types-requests>=2.32.0",
+    "types-pyyaml>=6.0.12",
+    "types-python-dateutil>=2.9.0",
+    "types-protobuf>=5.26.0",
+]
+
+# Security scanning
+security = [
+    "bandit[toml]>=1.7.8",
+    "safety>=3.2.0",
+    "pip-audit>=2.7.0",
+    "semgrep>=1.70.0",
+    "trivy>=0.50.0",
+]
+
+# Documentation
+docs = [
+    "mkdocs>=1.6.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.25.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.2.0",
+    "mkdocs-awesome-pages-plugin>=2.9.0",
+    "markdown-include>=0.8.0",
+]
+
+# Performance profiling
+profiling = [
+    "py-spy>=0.3.14",
+    "memory-profiler>=0.61.0",
+    "line-profiler>=4.1.0",
+    "scalene>=1.5.0",
+    "viztracer>=0.16.0",
+]
+
+# All development tools
+all = [
+    "ultimate-adk-agents[dev,test,lint,security,docs,profiling]",
+]
+
+[project.urls]
+Homepage = "https://github.com/JustinAIDistuptors/ultimate-adk-agents"
+Documentation = "https://ultimate-adk-agents.readthedocs.io"
+Repository = "https://github.com/JustinAIDistuptors/ultimate-adk-agents"
+Issues = "https://github.com/JustinAIDistuptors/ultimate-adk-agents/issues"
+Changelog = "https://github.com/JustinAIDistuptors/ultimate-adk-agents/blob/main/CHANGELOG.md"
+
+[project.scripts]
+# CLI entry points
+adk-agents = "src.cli.main:app"
+adk-health = "src.cli.health_check:main"
+adk-deploy = "src.cli.deploy:main"
+adk-monitor = "src.cli.monitor:main"
+
+# Tool configuration following 2025 best practices
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+exclude = ["tests*", "docs*", "scripts*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml", "*.json", "*.txt", "*.md"]
+
+# Ruff - Fast Python linter (2025 standard)
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+fix = true
+unsafe-fixes = false
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "D",      # pydocstyle
+    "I",      # isort
+    "N",      # pep8-naming
+    "S",      # flake8-bandit (security)
+    "T",      # flake8-print
+    "UP",     # pyupgrade
+    "ANN",    # flake8-annotations
+    "ASYNC",  # flake8-async
+    "BLE",    # flake8-blind-except
+    "FBT",    # flake8-boolean-trap
+    "A",      # flake8-builtins
+    "COM",    # flake8-commas
+    "C90",    # mccabe complexity
+    "DJ",     # flake8-django
+    "EM",     # flake8-errmsg
+    "ERA",    # eradicate
+    "EXE",    # flake8-executable
+    "ISC",    # flake8-implicit-str-concat
+    "ICN",    # flake8-import-conventions
+    "G",      # flake8-logging-format
+    "INP",    # flake8-no-pep420
+    "PIE",    # flake8-pie
+    "T20",    # flake8-print
+    "PYI",    # flake8-pyi
+    "PT",     # flake8-pytest-style
+    "Q",      # flake8-quotes
+    "RSE",    # flake8-raise
+    "RET",    # flake8-return
+    "SLF",    # flake8-self
+    "SIM",    # flake8-simplify
+    "TID",    # flake8-tidy-imports
+    "TCH",    # flake8-type-checking
+    "ARG",    # flake8-unused-arguments
+    "PTH",    # flake8-use-pathlib
+    "PD",     # pandas-vet
+    "PGH",    # pygrep-hooks
+    "PL",     # Pylint
+    "TRY",    # tryceratops
+    "NPY",    # NumPy-specific rules
+    "RUF",    # Ruff-specific rules
+]
+ignore = [
+    "D100",   # Missing docstring in public module
+    "D104",   # Missing docstring in public package
+    "D203",   # 1 blank line required before class docstring
+    "D213",   # Multi-line docstring summary should start at the second line
+    "E501",   # Line too long (handled by formatter)
+    "COM812", # Missing trailing comma (handled by formatter)
+    "ISC001", # Single line implicit string concatenation
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "D", "ANN", "T201"]  # Allow assert, no docstrings, no type hints, print in tests
+"scripts/*" = ["T201", "D"]  # Allow print statements and no docstrings in scripts
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
+force-single-line = false
+lines-between-types = 1
+lines-after-imports = 2
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 6
+max-branches = 12
+max-returns = 6
+max-statements = 50
+
+# Black - Code formatter
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # Standard exclusions
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # Project specific
+  | data
+  | docs
+  | infrastructure
+)/
+'''
+
+# isort - Import sorting
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+split_on_trailing_comma = true
+skip_glob = ["*/migrations/*", "*/settings/*"]
+known_first_party = ["src"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+
+# MyPy - Static type checking
+[tool.mypy]
+python_version = "3.12"
+files = ["src", "tests"]
+namespace_packages = true
+explicit_package_bases = true
+show_error_codes = true
+strict = true
+enable_error_code = [
+    "ignore-without-code",
+    "redundant-expr",
+    "truthy-bool",
+]
+
+# Strict type checking options
+warn_return_any = true
+warn_unused_configs = true
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+strict_concatenate = true
+
+# Output options
+pretty = true
+show_column_numbers = true
+show_error_context = true
+show_traceback = true
+
+# Import discovery
+follow_imports = "normal"
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = ["tests.*"]
+disallow_untyped_defs = false
+disallow_untyped_decorators = false
+
+[[tool.mypy.overrides]]
+module = [
+    "chromadb.*",
+    "weaviate.*",
+    "pinecone.*",
+    "qdrant_client.*",
+    "vertexai.*",
+    "google.cloud.*",
+    "google.generativeai.*",
+]
+ignore_missing_imports = true
+
+# Pytest configuration
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*", "*Tests"]
+python_functions = ["test_*"]
+addopts = [
+    "-ra",
+    "--strict-config",
+    "--strict-markers",
+    "--cov=src",
+    "--cov-branch",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-report=html",
+    "--cov-report=xml",
+    "--cov-fail-under=80",
+    "--maxfail=1",
+    "--tb=short",
+    "--asyncio-mode=auto",
+    "-n=auto",  # Use all CPU cores
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "e2e: End-to-end tests",
+    "slow: Slow tests",
+    "security: Security tests",
+    "benchmark: Performance benchmark tests",
+    "requires_gpu: Tests that require GPU",
+    "requires_gcp: Tests that require GCP credentials",
+]
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning",
+]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(name)s: %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+# Coverage configuration
+[tool.coverage.run]
+source = ["src"]
+branch = true
+parallel = true
+omit = [
+    "*/tests/*",
+    "*/__init__.py",
+    "*/migrations/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def __str__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*Protocol:",
+    "@abstractmethod",
+    "@abc.abstractmethod",
+]
+precision = 2
+show_missing = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+# Bandit - Security linter
+[tool.bandit]
+targets = ["src"]
+exclude_dirs = ["tests", "docs", "scripts"]
+severity = "medium"
+confidence = "medium"
+max_lines = 500
+recursive = true
+skip = ["B101", "B601"]  # Skip assert_used and paramiko tests
+
+# Pyright - Alternative type checker (for IDE support)
+[tool.pyright]
+include = ["src"]
+exclude = ["**/__pycache__", "**/node_modules", "**/.venv", "**/build", "**/dist"]
+defineConstant = { DEBUG = true }
+stubPath = "typings"
+reportMissingImports = true
+reportMissingTypeStubs = false
+pythonVersion = "3.12"
+pythonPlatform = "Linux"
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+autoSearchPaths = true
+diagnosticMode = "workspace"
+autoImportCompletions = true
+
+# Documentation with MkDocs
+[tool.mkdocs]
+site_name = "Ultimate ADK Agents"
+site_description = "THE definitive enterprise-grade reference implementation for Google ADK"
+site_author = "Ultimate ADK Team"
+repo_url = "https://github.com/JustinAIDistuptors/ultimate-adk-agents"
+repo_name = "ultimate-adk-agents"
+
+# UV - Modern Python package manager (2025 standard)
+[tool.uv]
+preview = true
+native-tls = true
+cache = true
+compile = true
+upgrade = true
